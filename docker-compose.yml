@@ -1,0 +1,15 @@
+services:
+  omidwar:
+    build: .
+    container_name: omidwar
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_PATH: /app/data/omidwar.db
+    volumes:
+      - omidwar_data:/app/data
+volumes:
+  omidwar_data:
